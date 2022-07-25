@@ -1,0 +1,37 @@
+
+server:
+  port: 8080
+spring:
+  output:
+    ansi:
+      enabled: always
+  jpa:
+    hibernate:
+      ddl-auto: update #update #none
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect #org.hibernate.dialect.MariaDB103Dialect
+    open-in-view: false # waring : spring.jpa.open-in-view is enabled by default.
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  datasource:
+    url: jdbc:mariadb://localhost:3306/pns_eis?serverTimezone=UTC&characterEncoding=UTF-8
+    driver-class-name: org.mariadb.jdbc.Driver #com.mysql.cj.jdbc.Driver  #org.mariadb.jdbc.Driver
+    hikari:
+      username: root
+      password: root
+broker:
+  app:
+    jwtCookieName: pns
+    jwtSecret : pnsSecretKey
+    jwtExpirationMs : 86400000 #3600 * 24 * 1000 #86400000
+    jwtExpirationRefresh: 604800000 #3600 * 24 * 1000 * 7 #604800000
+logging:
+#  file:
+#    path: ./logs/local-dev
+  pattern:
+    console: "%clr(%d{yy-MM-dd E HH:mm:ss.SSS}){blue} %clr(%-5p) %clr(${PID}){faint} %clr(---){faint} %clr([%8.15t]){cyan} %clr(%-40.40logger{0}){blue} %clr(:){red} %clr(%m){faint}%n"
+  level:
+    root: info
+    org.springframework: debug
+
