@@ -1,7 +1,6 @@
 package com.security.jwt.login.entity;
 
 import com.security.jwt.login.enums.RoleCode;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
