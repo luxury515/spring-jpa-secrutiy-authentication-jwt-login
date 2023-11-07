@@ -1,0 +1,19 @@
+### signup
+POST http://localhost:8080/api/auth/signup
+Content-Type: application/json
+
+{
+    "username":"cai1",
+    "email":"cai1@gmail.com",
+    "password":"123456",
+    "role":["ROLE_USER","ROLE_ADMIN"]
+}
+
+### For login
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+    "username":"cai1",
+    "password":"123456"
+}

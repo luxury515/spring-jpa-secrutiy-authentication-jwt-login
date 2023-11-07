@@ -18,8 +18,8 @@ spring:
     url: jdbc:mariadb://localhost:3306/pns_eis?serverTimezone=UTC&characterEncoding=UTF-8
     driver-class-name: org.mariadb.jdbc.Driver #com.mysql.cj.jdbc.Driver  #org.mariadb.jdbc.Driver
     hikari:
-      username: root
-      password: root
+      username: ENC(yLRRm4Qa6WcLpX9sJf5hHw==)
+      password: ENC(cO9hsMBDzVJNA7iOUJembw==)
 broker:
   app:
     jwtCookieName: pns
@@ -27,11 +27,14 @@ broker:
     jwtExpirationMs : 86400000 #3600 * 24 * 1000 #86400000
     jwtExpirationRefresh: 604800000 #3600 * 24 * 1000 * 7 #604800000
 logging:
-#  file:
-#    path: ./logs/local-dev
+  file:
+    path: ./logs/local-dev
   pattern:
     console: "%clr(%d{yy-MM-dd E HH:mm:ss.SSS}){blue} %clr(%-5p) %clr(${PID}){faint} %clr(---){faint} %clr([%8.15t]){cyan} %clr(%-40.40logger{0}){blue} %clr(:){red} %clr(%m){faint}%n"
   level:
     root: info
     org.springframework: debug
 
+jasypt:
+  encryptor:
+    bean: encryptBean
