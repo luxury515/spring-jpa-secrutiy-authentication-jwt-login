@@ -18,8 +18,8 @@ spring:
     url: jdbc:mariadb://localhost:3306/pns_eis?serverTimezone=UTC&characterEncoding=UTF-8
     driver-class-name: org.mariadb.jdbc.Driver #com.mysql.cj.jdbc.Driver  #org.mariadb.jdbc.Driver
     hikari:
-      username: ENC(yLRRm4Qa6WcLpX9sJf5hHw==)
-      password: ENC(cO9hsMBDzVJNA7iOUJembw==)
+      username: ENC(yLRRm4Qa6WcLpX9sJf5hHw==) #root
+      password: ENC(cO9hsMBDzVJNA7iOUJembw==) #root
 broker:
   app:
     jwtCookieName: pns
