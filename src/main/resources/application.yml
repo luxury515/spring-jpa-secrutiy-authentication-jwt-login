@@ -7,7 +7,7 @@ spring:
       enabled: always
   jpa:
     hibernate:
-      ddl-auto: update #update #none
+      ddl-auto: update #create #create-drop #update
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect #org.hibernate.dialect.MariaDB103Dialect
     open-in-view: false # waring : spring.jpa.open-in-view is enabled by default.
     show-sql: true
@@ -32,7 +32,9 @@ logging:
   pattern:
     console: "%clr(%d{yy-MM-dd E HH:mm:ss.SSS}){blue} %clr(%-5p) %clr(${PID}){faint} %clr(---){faint} %clr([%8.15t]){cyan} %clr(%-40.40logger{0}){blue} %clr(:){red} %clr(%m){faint}%n"
   level:
+    org.hibernate.SQL: info
     root: info
+    com.zaxxer.hikari.pool.HikariPool: debug
     org.springframework: debug
 
 jasypt:
