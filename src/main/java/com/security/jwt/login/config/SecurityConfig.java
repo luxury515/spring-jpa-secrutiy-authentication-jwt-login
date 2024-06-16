@@ -15,17 +15,19 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(
-    // securedEnabled = true,
-    // jsr250Enabled = true,
-    prePostEnabled = true)
+        // securedEnabled = true,
+        // jsr250Enabled = true,
+        prePostEnabled = true)
 @RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final CustomAuthenticationEntryPoint customAuthenticationEntryPoint;
+
     @Bean
     public CustomOncePerRequestFilter customOncePerRequestFilter() {
         return new CustomOncePerRequestFilter();
     }
+
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -41,10 +43,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
         http.exceptionHandling().authenticationEntryPoint(customAuthenticationEntryPoint).and()
-            .sessionManagement()
-            .sessionCreationPolicy(
-                SessionCreationPolicy.STATELESS).and().authorizeRequests()
-            .antMatchers("/api/auth/**").permitAll().antMatchers("/api/test/**").permitAll()
-            .anyRequest().authenticated();
+                .sessionManagement()
+                .sessionCreationPolicy(
+                        SessionCreationPolicy.STATELESS).and().authorizeRequests()
+                .antMatchers("/api/auth/**").permitAll().antMatchers("/api/test/**").permitAll()
+                .anyRequest().authenticated();
     }
 }
